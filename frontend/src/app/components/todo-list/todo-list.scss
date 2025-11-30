@@ -1,0 +1,158 @@
+.todo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    color: #6366f1;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.add-todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+
+  .todo-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    background: #1f2937;
+    color: #e5e7eb;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: #6b7280;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+  }
+
+  .priority-select {
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    background: #1f2937;
+    color: #e5e7eb;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+  }
+
+  .add-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #6366f1;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #4f46e5;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #9ca3af;
+
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #1f2937;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #374151;
+  }
+
+  &.completed {
+    opacity: 0.6;
+
+    .todo-title {
+      text-decoration: line-through;
+    }
+  }
+
+  .todo-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .todo-title {
+    flex: 1;
+    color: #e5e7eb;
+    font-size: 1rem;
+  }
+
+  .priority-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .priority-low {
+    background: #10b98120;
+    color: #10b981;
+  }
+
+  .priority-medium {
+    background: #f59e0b20;
+    color: #f59e0b;
+  }
+
+  .priority-high {
+    background: #ef444420;
+    color: #ef4444;
+  }
+
+  .delete-button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

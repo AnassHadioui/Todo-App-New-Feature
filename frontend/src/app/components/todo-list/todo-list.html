@@ -1,0 +1,54 @@
+<div class="todo-container">
+  <h1>Mes Tâches</h1>
+
+  <!-- Add Todo Form -->
+  <div class="add-todo-form">
+    <input 
+      type="text" 
+      [(ngModel)]="newTitle" 
+      placeholder="Nouvelle tâche..."
+      (keyup.enter)="addTodo()"
+      class="todo-input"
+    />
+    
+    <select 
+      [(ngModel)]="newPriority" 
+      class="priority-select"
+    >
+      <option value="LOW">🟢 Basse</option>
+      <option value="MEDIUM">🟡 Moyenne</option>
+      <option value="HIGH">🔴 Haute</option>
+    </select>
+
+    <button (click)="addTodo()" class="add-button">
+      +
+    </button>
+  </div>
+
+  <!-- Todo List -->
+  <div *ngIf="todos.length === 0" class="empty-state">
+    <div class="empty-icon">✓</div>
+    <p>Aucune tâche ! Profite</p>
+  </div>
+
+  <div *ngIf="todos.length > 0" class="todos-list">
+    <div *ngFor="let todo of todos" class="todo-item" [class.completed]="todo.completed">
+      <input 
+        type="checkbox" 
+        [checked]="todo.completed" 
+        (change)="toggle(todo)"
+        class="todo-checkbox"
+      />
+      
+      <span class="todo-title">{{ todo.title }}</span>
+      
+      <span [class]="'priority-badge ' + getPriorityClass(getPriority(todo))">
+        {{ getPriorityLabel(getPriority(todo)) }}
+      </span>
+
+      <button (click)="delete(todo)" class="delete-button">
+        🗑️
+      </button>
+    </div>
+  </div>
+</div>
